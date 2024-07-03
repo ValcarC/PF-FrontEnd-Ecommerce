@@ -8,7 +8,7 @@ import SignUp from './pages/signUp/SignUp';
 import ProfilePage from './pages/profilepage/ProfilePage';
 import Navbar from '../src/components/navbar/Navbar';
 import Favorites from './pages/favorites/Favorites';
-import ForgotPassword from './pages/Forgot Password/ForgotPassword';
+// import ForgotPassword from './pages/Forgot Password/ForgotPassword';
 import About from './pages/about/About.jsx';
 
 import ActivateUserByEmail from './components/admin/userCrud/ActivateUserByEmail.jsx';
@@ -38,7 +38,7 @@ function App() {
           <Route path='/Detail/:id' element={ <Detail /> } />
           <Route path='/SignIn' element={ <SignIn /> } />
           <Route path='/SignUp' element={ <SignUp /> } />
-          <Route path='/ForgotPassword' element={ <ForgotPassword /> } />
+          {/* <Route path='/ForgotPassword' element={ <ForgotPassword /> } /> */}
           <Route path='/Profile' element={ <ProfilePage /> } />
           <Route path='/favorites' element={ <Favorites /> } />
           <Route path='/cartPage' element={ <CartPage /> } />
