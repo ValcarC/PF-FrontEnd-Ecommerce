@@ -43,12 +43,13 @@ function App() {
           <Route path='/cartPage' element={ <CartPage /> } />
           <Route path="/paySuccess" element={ <PaySuccess /> } />
           <Route path="/payCancel" element={ <PayCancel /> } />
+          <Route path="/about" element={<About />} />
           {/* <Route path='/disableuserbyid' element={ < DisableUserById /> } />
           < Route path='/disableuserbyemail' element={ < DisableUserByEmail /> } />
           < Route path='/allusers' element={ < ViewUsers /> } />
           < Route path='/createadmin' element={ < CreateAdminUser /> } />
           < Route path='/activateuserbyemail' element={ < ActivateUserByEmail /> } />
-          < Route path='/emailallusers' element={ < EmailAllUsers /> } /> 
+          < Route path='/emailallusers' element={ < EmailAllUsers /> } />  */}
 
         </Routes>
       </AuthContextProvider>

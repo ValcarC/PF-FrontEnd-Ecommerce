@@ -18,8 +18,7 @@ import {
     userInfo: user ? user : {},
     isAdmin: false,
     user: {},
-    userDetailId: {}
-,
+    userDetailId: {},
     profile: {
       user: {},
       loading: false,

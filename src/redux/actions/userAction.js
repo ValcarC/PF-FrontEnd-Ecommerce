@@ -26,6 +26,7 @@ export function login(email, password) {
         email,
         password,
       });
+      console.log(data.userInfo);
       if (status === 200) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.userInfo));
