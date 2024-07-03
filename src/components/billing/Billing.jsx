@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+
 const Billing = () => {
+  const userOrders = useSelector(state => state.user.user);
+console.log(userOrders);
   return (
     <div className="">
       <div className="bg-white shadow-md mt-12 max-w-6xl mx-auto">
@@ -6,64 +10,42 @@ const Billing = () => {
           Billing History
         </div>
         <div className="p-4 bg-zinc-200">
-          <div className="overflow-x-auto">
-            <div className="w-full">
-              <div className="mb-4 flex items-center justify-between border-b border-gray-500">
-                <div className="w-1/4 px-4 py-2 font-inter font-semibold">
-                  Transaction ID
+          {userOrders && userOrders.length > 0 ? (
+            <div className="overflow-x-auto">
+              <div className="w-full">
+                <div className="mb-4 flex items-center justify-between border-b border-gray-500">
+                  <div className="w-1/4 px-4 py-2 font-inter font-semibold">
+                    Transaction ID
+                  </div>
+                  <div className="w-1/4 px-4 py-2 font-inter font-semibold">
+                    Date
+                  </div>
+                  <div className="w-1/4 px-4 py-2 font-inter font-semibold">
+                    Amount
+                  </div>
+                  <div className="w-1/4 px-4 py-2 font-inter font-semibold">
+                    Status
+                  </div>
                 </div>
-                <div className="w-1/4 px-4 py-2 font-inter font-semibold">
-                  Date
-                </div>
-                <div className="w-1/4 px-4 py-2 font-inter font-semibold">
-                  Amount
-                </div>
-                <div className="w-1/4 px-4 py-2 font-inter font-semibold">
-                  Status
-                </div>
-              </div>
-              <div className="mb-4 flex items-center justify-between border-b border-gray-200">
-                <div className="w-1/4 px-4 py-2">#39201</div>
-                <div className="w-1/4 px-4 py-2">06/15/2021</div>
-                <div className="w-1/4 px-4 py-2">$29.99</div>
-                <div className="w-1/4 px-4 py-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-800 rounded">
-                    Pending
-                  </span>
-                </div>
-              </div>
-              <div className="mb-4 flex items-center justify-between border-b border-gray-200">
-                <div className="w-1/4 px-4 py-2">#38594</div>
-                <div className="w-1/4 px-4 py-2">05/15/2021</div>
-                <div className="w-1/4 px-4 py-2">$29.99</div>
-                <div className="w-1/4 px-4 py-2">
-                  <span className="px-2 py-1 bg-green-500 text-white rounded">
-                    Paid
-                  </span>
-                </div>
-              </div>
-              <div className="mb-4 flex items-center justify-between border-b border-gray-200">
-                <div className="w-1/4 px-4 py-2">#38223</div>
-                <div className="w-1/4 px-4 py-2">04/15/2021</div>
-                <div className="w-1/4 px-4 py-2">$29.99</div>
-                <div className="w-1/4 px-4 py-2">
-                  <span className="px-2 py-1 bg-green-500 text-white rounded">
-                    Paid
-                  </span>
-                </div>
-              </div>
-              <div className="mb-4 flex items-center justify-between">
-                <div className="w-1/4 px-4 py-2">#38125</div>
-                <div className="w-1/4 px-4 py-2">03/15/2021</div>
-                <div className="w-1/4 px-4 py-2">$29.99</div>
-                <div className="w-1/4 px-4 py-2">
-                  <span className="px-2 py-1 bg-green-500 text-white rounded">
-                    Paid
-                  </span>
-                </div>
+                {userOrders.map(order => (
+                  <div key={order.id} className="mb-4 flex items-center justify-between border-b border-gray-200">
+                    <div className="w-1/4 px-4 py-2">#{order.id}</div>
+                    <div className="w-1/4 px-4 py-2">{new Date(order.updated_at).toLocaleDateString()}</div>
+                    <div className="w-1/4 px-4 py-2">${order.price}</div>
+                    <div className="w-1/4 px-4 py-2">
+                      <span className={`px-2 py-1 rounded ${order.state === "Paid" ? "bg-green-500 text-white" : "bg-gray-200 text-gray-800"}`}>
+                        {order.state}
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="text-center text-gray-500">
+              Aún no hay plantillas compradas
+            </div>
+          )}
         </div>
       </div>
     </div>

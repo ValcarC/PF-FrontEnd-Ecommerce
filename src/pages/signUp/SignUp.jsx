@@ -57,7 +57,7 @@ const SignUp = () => {
       if (loginWithGoogle) {
         const { user, firebaseToken } = loginWithGoogle;
         dispatch(logWhitFirebase({ user, firebaseToken }));
-        navigate("/login");
+        navigate("/home");
       }
       setLoading(false)
     } catch (error) {

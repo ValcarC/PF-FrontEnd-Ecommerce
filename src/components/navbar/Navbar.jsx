@@ -189,11 +189,13 @@ const Navbar = () => {
               </div>
             </div>
           ) }
-          <img
-            src={ bag }
-            alt="logo ReactiveMind"
-            className="w-[40px] h-[40px] mr-12 transform hover:scale-125 transition-transform duration-300 cursor-pointer"
-          />
+          <Link to="/cartPage">
+            <img
+              src={ bag }
+              alt="logo ReactiveMind"
+              className="w-[40px] h-[40px] mr-12 transform hover:scale-125 transition-transform duration-300 cursor-pointer"
+            />
+          </Link>
         </div>
       </div>
     </nav>
