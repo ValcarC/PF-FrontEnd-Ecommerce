@@ -9,6 +9,13 @@ import ProfilePage from './pages/profilepage/ProfilePage';
 import Navbar from '../src/components/navbar/Navbar';
 import Favorites from './pages/favorites/Favorites';
 import ForgotPassword from './pages/Forgot Password/ForgotPassword';
+import About from './pages/about/About.jsx';
+
+import ActivateUserByEmail from './components/admin/userCrud/ActivateUserByEmail.jsx';
+import CreateAdminUser from './components/admin/userCrud/createAdminUser.jsx';
+import ViewUsers from './components/admin/userCrud/seeAllUsers.jsx';
+import EmailAllUsers from './components/admin/userCrud/EmailAllUsers.jsx';
+import DisableUserByEmail from './components/admin/userCrud/disableUserByEmail.jsx';
 
 import { AuthContextProvider } from './components/context/authContex.jsx';
 import CartPage from './pages/cartPage/CartPage.jsx';
@@ -41,7 +48,7 @@ function App() {
           < Route path='/allusers' element={ < ViewUsers /> } />
           < Route path='/createadmin' element={ < CreateAdminUser /> } />
           < Route path='/activateuserbyemail' element={ < ActivateUserByEmail /> } />
-          < Route path='/emailallusers' element={ < EmailAllUsers /> } /> */}
+          < Route path='/emailallusers' element={ < EmailAllUsers /> } /> 
 
         </Routes>
       </AuthContextProvider>
