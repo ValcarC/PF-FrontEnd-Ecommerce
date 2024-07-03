@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
-  const [ componenteSeleccionado, setComponenteSeleccionado ] = useState(null);
+  const [ componenteSeleccionado, setComponenteSeleccionado ] = useState("Profile");
   const loggedIn = useSelector(state => state.user.loggedIn)
 
   useEffect(() => {
