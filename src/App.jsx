@@ -12,8 +12,8 @@ import ForgotPassword from './pages/Forgot Password/ForgotPassword';
 
 import { AuthContextProvider } from './components/context/authContex.jsx';
 import CartPage from './pages/cartPage/CartPage.jsx';
-// import PaySuccess from './components/paysuccess/PaySuccess.jsx';
-// import PayCancel from './components/payCancel/PayCancel.jsx';
+import PaySuccess from './components/paySuccess/PaySuccess.jsx';
+import PayCancel from './components/payCancel/PayCancel.jsx';
 
 
 function App() {
@@ -34,8 +34,8 @@ function App() {
           <Route path='/Profile' element={ <ProfilePage /> } />
           <Route path='/favorites' element={ <Favorites /> } />
           <Route path='/cartPage' element={ <CartPage /> } />
-          {/* <Route path="/paySuccess" element={ <PaySuccess /> } />
-          <Route path="/payCancel" element={ <PayCancel /> } /> */}
+          <Route path="/paySuccess" element={ <PaySuccess /> } />
+          <Route path="/payCancel" element={ <PayCancel /> } />
           {/* <Route path='/disableuserbyid' element={ < DisableUserById /> } />
           < Route path='/disableuserbyemail' element={ < DisableUserByEmail /> } />
           < Route path='/allusers' element={ < ViewUsers /> } />
