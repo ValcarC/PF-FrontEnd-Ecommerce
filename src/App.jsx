@@ -30,6 +30,7 @@ import CartPage from './pages/cartPage/CartPage.jsx';
 import PaySuccess from './components/paySuccess/PaySuccess.jsx';
 import PayCancel from './components/payCancel/PayCancel.jsx';
 import Prueba from './components/Prueba.jsx';
+import DashboardPage from './components/admin/dashboardPage/DashboardPage.jsx';
 
 function App() {
   const { pathname } = useLocation();
@@ -39,30 +40,32 @@ function App() {
 
   return (
     <div>
-       <ToastContainer />
-      {isNotAdminRoute && <Navbar />}
+      <ToastContainer />
+      { pathname !== "/" || pathname !== "/dashboard" && <Navbar /> }
       <AuthContextProvider>
         <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route path='/Home' element={<Home />} />
-          <Route path='/Detail/:id' element={<Detail />} />
-          <Route path='/SignIn' element={<SignIn />} />
-          <Route path='/SignUp' element={<SignUp />} />
-          {/* <Route path='/ForgotPassword' element={<ForgotPassword />} /> */}
-          <Route path='/Profile' element={<ProfilePage />} />
-          <Route path='/favorites' element={<Favorites />} />
-          <Route path='/cartPage' element={<CartPage />} />
-          <Route path='/About' element={<About />} />
-          <Route path='/seeAllTemplates' element={<SeeAllTemplates />} />
-          <Route path='/createTemplate' element={<CreateTemplate />} />
-          <Route path='/updateTemplate' element={<UpdateTemplate />} />
-          <Route path='/metricsTemplates' element={<MetricsTemplates />} />
-          <Route path='/disableuserbyemail' element={<DisableUserByEmail />} />
-          <Route path='/allusers' element={<ViewUsers />} />
-          <Route path='/createadmin' element={<CreateAdminUser />} />
-          <Route path='/activateuserbyemail' element={<ActivateUserByEmail />} />
-          <Route path='/emailallusers' element={<EmailAllUsers />} />
-          <Route path='/prueba' element={<Prueba />} />
+          <Route path='/' element={ <Landing /> } />
+          <Route path='/Home' element={ <Home /> } />
+          <Route path='/Detail/:id' element={ <Detail /> } />
+          <Route path='/SignIn' element={ <SignIn /> } />
+          <Route path='/SignUp' element={ <SignUp /> } />
+          {/* <Route path='/ForgotPassword' element={<ForgotPassword />} /> */ }
+          <Route path='/Profile' element={ <ProfilePage /> } />
+          <Route path='/favorites' element={ <Favorites /> } />
+          <Route path='/cartPage' element={ <CartPage /> } />
+          <Route path='/About' element={ <About /> } />
+          <Route path='/dashboard' element={ <DashboardPage /> } >
+            <Route path='seeAllTemplates' element={ <SeeAllTemplates /> } />
+            <Route path='createTemplate' element={ <CreateTemplate /> } />
+            <Route path='updateTemplate' element={ <UpdateTemplate /> } />
+            <Route path='metricsTemplates' element={ <MetricsTemplates /> } />
+            <Route path='disableuserbyemail' element={ <DisableUserByEmail /> } />
+            <Route path='allusers' element={ <ViewUsers /> } />
+            <Route path='createadmin' element={ <CreateAdminUser /> } />
+            <Route path='activateuserbyemail' element={ <ActivateUserByEmail /> } />
+            <Route path='emailallusers' element={ <EmailAllUsers /> } />
+            <Route path='prueba' element={ <Prueba /> } />
+          </Route>
         </Routes>
       </AuthContextProvider>
     </div>
