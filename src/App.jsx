@@ -48,7 +48,7 @@ function App() {
           <Route path='/Detail/:id' element={<Detail />} />
           <Route path='/SignIn' element={<SignIn />} />
           <Route path='/SignUp' element={<SignUp />} />
-          <Route path='/ForgotPassword' element={<ForgotPassword />} />
+          {/* <Route path='/ForgotPassword' element={<ForgotPassword />} /> */}
           <Route path='/Profile' element={<ProfilePage />} />
           <Route path='/favorites' element={<Favorites />} />
           <Route path='/cartPage' element={<CartPage />} />
