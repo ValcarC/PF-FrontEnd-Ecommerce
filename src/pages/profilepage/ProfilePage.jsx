@@ -7,6 +7,7 @@ import Profile from "../../components/profile/Profile";
 import Billing from "../../components/billing/Billing";
 import Security from "../../components/security/Security";
 import UserReviews from "../../components/reviews/UserReviews";
+import { useSelector } from "react-redux";
 
 const ProfilePage = ({ fetchProfile }) => {
   const [componenteSeleccionado, setComponenteSeleccionado] = useState("Profile");

@@ -76,28 +76,28 @@ const Navbar = () => {
     <nav className="bg-white p-4 border-b-2 border-inherit shadow">
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-         <div className="flex items-center"> 
-        <div className="flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center space-y+15 mt-5">
-          <Link to="/Home">
-            <img
-              src={logo}
-              alt="logo ReactiveMind"
-              className="w-[52px] h-[52px] transform hover:rotate-90 transition-transform duration-300 ease-in-out"
-            />
-          </Link>
-            <div className="text-[24px] font-light text-[#06B6D4] tracking-wider mb-3">
-            VEGA
+          <div className="flex items-center">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center space-y+15 mt-5">
+                <Link to="/Home">
+                  <img
+                    src={ logo }
+                    alt="logo ReactiveMind"
+                    className="w-[52px] h-[52px] transform hover:rotate-90 transition-transform duration-300 ease-in-out"
+                  />
+                </Link>
+                <div className="text-[24px] font-light text-[#06B6D4] tracking-wider mb-3">
+                  VEGA
+                </div>
+              </div>
             </div>
-        </div>
-        </div>
-        <Link
-            to="/About"
-            className="text-[16px] font-bold text-[#06B6D4] tracking-wider ml-9 mt-4 
+            <Link
+              to="/About"
+              className="text-[16px] font-bold text-[#06B6D4] tracking-wider ml-9 mt-4 
               font-inter pb-2 transition-colors duration-300 hover:font-black  hover:text-green-500 relative before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-green-500 before:transition-all before:duration-300 hover:before:w-full"
-          >
-            SOBRE NOSOTROS
-          </Link>
+            >
+              SOBRE NOSOTROS
+            </Link>
           </div>
           <Searchbar handleChange={ handleChange } handleSearch={ handleSearch } />
           { isAuthenticated ? (
@@ -159,8 +159,20 @@ const Navbar = () => {
                         Cerrar sesión
                       </button>
                     </div>
+
                   ) }
                 </div>
+                <Link to="/favorites">
+                  <svg
+                    className="mr-8 transform origin-center hover:fill-green-500 hover:animate-rotate-scale cursor-pointer"
+                    viewBox="0 0 22 20"
+                    width="26"
+                    height="26"
+                    fill="#06B6D4"
+                  >
+                    <path d="M1.795 10.556a6.195 6.195 0 018.782-8.742l.423.424.424-.424a6.193 6.193 0 018.76 0 6.197 6.197 0 01.02 8.742l-8.404 8.9a1.1 1.1 0 01-1.6 0zM11 17.098l7.607-8.055.023-.022a3.999 3.999 0 000-5.651 3.997 3.997 0 00-5.652 0l-1.2 1.201a1.1 1.1 0 01-1.556 0L9.021 3.37A3.993 3.993 0 002.2 6.195a3.994 3.994 0 001.19 2.848z"></path>
+                  </svg>
+                </Link>
               </div>
             </div>
           ) : (
@@ -171,29 +183,21 @@ const Navbar = () => {
                     INGRESAR
                   </button>
                 </Link>
-                <Link to="/SignUp"> 
+                <Link to="/SignUp">
                   <button className="bg-white border-[2px] border-[#06B6D4] font-inter text-[#06B6D4] hover:scale-110 hover:border-[#06B6D4] hover:bg-[#06B6D4] hover:text-white px-3 py-2 rounded-md text-sm font-medium mr-8">
                     UNETE
                   </button>
                 </Link>
-
-                <svg
-  className="mr-8 transform origin-center hover:fill-green-500 hover:animate-rotate-scale cursor-pointer"
-  viewBox="0 0 22 20"
-  width="26"
-  height="26"
-  fill="#06B6D4"
->
-  <path d="M1.795 10.556a6.195 6.195 0 018.782-8.742l.423.424.424-.424a6.193 6.193 0 018.76 0 6.197 6.197 0 01.02 8.742l-8.404 8.9a1.1 1.1 0 01-1.6 0zM11 17.098l7.607-8.055.023-.022a3.999 3.999 0 000-5.651 3.997 3.997 0 00-5.652 0l-1.2 1.201a1.1 1.1 0 01-1.556 0L9.021 3.37A3.993 3.993 0 002.2 6.195a3.994 3.994 0 001.19 2.848z"></path>
-</svg>
-                <img
-  src={bag}
-  alt="logo ReactiveMind"
-  className="w-[40px] h-[40px] mr-12 transform hover:scale-125 transition-transform duration-300 cursor-pointer"
-/>
               </div>
             </div>
-          )}
+          ) }
+          <Link to="/cartPage">
+            <img
+              src={ bag }
+              alt="logo ReactiveMind"
+              className="w-[40px] h-[40px] mr-12 transform hover:scale-125 transition-transform duration-300 cursor-pointer"
+            />
+          </Link>
         </div>
       </div>
     </nav>

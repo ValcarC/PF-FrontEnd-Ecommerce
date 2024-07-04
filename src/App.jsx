@@ -11,7 +11,7 @@ import SignUp from './pages/signUp/SignUp';
 import ProfilePage from './pages/profilepage/ProfilePage';
 import Navbar from './components/navbar/Navbar';
 import Favorites from './pages/favorites/Favorites';
-import ForgotPassword from './pages/Forgot Password/ForgotPassword';
+// import ForgotPassword from './pages/Forgot Password/ForgotPassword';
 import About from './pages/about/About.jsx';
 import SeeAllTemplates from './components/admin/templatesCrud/SeeAllTemplates.jsx';
 import CreateTemplate from './components/admin/templatesCrud/CreateTemplate.jsx';
@@ -27,6 +27,8 @@ import DisableUserByEmail from './components/admin/userCrud/disableUserByEmail.j
 
 import { AuthContextProvider } from './components/context/authContex.jsx';
 import CartPage from './pages/cartPage/CartPage.jsx';
+import PaySuccess from './components/paySuccess/PaySuccess.jsx';
+import PayCancel from './components/payCancel/PayCancel.jsx';
 import Prueba from './components/Prueba.jsx';
 
 function App() {
@@ -46,7 +48,7 @@ function App() {
           <Route path='/Detail/:id' element={<Detail />} />
           <Route path='/SignIn' element={<SignIn />} />
           <Route path='/SignUp' element={<SignUp />} />
-          <Route path='/ForgotPassword' element={<ForgotPassword />} />
+          {/* <Route path='/ForgotPassword' element={<ForgotPassword />} /> */}
           <Route path='/Profile' element={<ProfilePage />} />
           <Route path='/favorites' element={<Favorites />} />
           <Route path='/cartPage' element={<CartPage />} />

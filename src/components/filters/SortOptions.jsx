@@ -1,9 +1,9 @@
 const SortOptions = ({ setSortBy, setOrder }) => {
     return (
-        <div className="w-full sticky top-0 z-10 bg-transparent flex justify-end pr-8">
-            <div className="sort-options ">
+        <div className="w-full sticky top-0 z-10 bg-white flex justify-end pr-8 pt-8">
+            <div className="sort-options">
                 <label>Ordenar Por: </label>
-                <select className="block appearance-none w-full bg-white border-2 border-gray-200 rounded-md py-2 pl-3 pr-10 leading-tight focus:outline-none focus:border-green-500"
+                <select className="block appearance-none w-full bg-white border-2 border-gray-200 rounded-md mt-4 py-2 pl-3 pr-10 leading-tight focus:outline-none focus:border-green-500"
                     onChange={ (e) => {
                         const [ sortField, sortOrder ] = e.target.value.split('-');
                         setSortBy(sortField);

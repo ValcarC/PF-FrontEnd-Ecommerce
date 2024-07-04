@@ -1,10 +1,10 @@
 import axios from "axios";
 const localURL = "http://localhost:3001/payment"
 const URL = ""
-const token = localStorage.getItem('token');
 
 export function checkoutSession() {
     return async (dispatch) => {
+        const token = localStorage.getItem('token');
         try {
             const { data } = await axios.post(`${URL || localURL}/checkout-session`, {}, {
 
@@ -25,6 +25,7 @@ export function checkoutSession() {
 
 export function checkoutSuccess() {
     return async (dispatch) => {
+        const token = localStorage.getItem('token');
         const order = localStorage.getItem("orderId")
         try {
             const { data } = await axios.post(`${URL || localURL}/checkout-success?order_id=${order}`, {}, {
@@ -46,6 +47,7 @@ export function checkoutSuccess() {
 
 export function checkoutCancel() {
     return async (dispatch) => {
+        const token = localStorage.getItem('token');
         const order = localStorage.getItem("orderId")
         try {
             const { data } = await axios.post(`${URL || localURL}/checkout-cancel?order_id=${order}`, {}, {

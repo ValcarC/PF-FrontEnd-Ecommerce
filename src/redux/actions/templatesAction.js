@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_TEMPLATE_ID, GET_TEMPLATE_BY_SEARCH, ADD_FAV, REMOVE_FAV, GET_TECHNOLOGIES, GET_CATEGORIES, GET_FILTERED_TEMPLATES } from './action-types';
+import { GET_TEMPLATE_ID, GET_TEMPLATE_BY_SEARCH, GET_TECHNOLOGIES, GET_CATEGORIES, GET_FILTERED_TEMPLATES } from './action-types';
 
 const localURL = "http://localhost:3001/templates"
 const URL = ""
@@ -93,33 +93,9 @@ export const getTemplateBySearch = (payload) => {
         }
     };
 };
-export const addFav = (payload) => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.post(`${URL || localURL}/favorites`, payload)
-            return dispatch({
-                type: ADD_FAV,
-                payload: response.data
-            })
-        } catch (error) {
-            return error.response
-        }
-    }
-};
 
-export const removeFav = (payload) => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.delete(`${URL || localURL}/favorites`, payload)
-            return dispatch({
-                type: REMOVE_FAV,
-                payload: response.data
-            })
-        } catch (error) {
-            return error.response
-        }
-    }
-};
+
+
 
 export const getTechnologies = () => {
     return async (dispatch) => {

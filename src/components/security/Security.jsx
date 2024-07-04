@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changePassword } from "../../redux/actions/userAction";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,6 +9,14 @@ const Security = () => {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [isFirebaseUser, setIsFirebaseUser] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user && user.firebaseUid) {
+      setIsFirebaseUser(true);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +29,7 @@ const Security = () => {
     e.preventDefault();
 
     try {
-      if (!currentPassword || !newPassword || !confirmPassword) {
+      if (!newPassword || !confirmPassword) {
         toast.warning('Por favor complete todos los campos.');
         return;
       }
@@ -31,7 +39,16 @@ const Security = () => {
         return;
       }
 
-      await dispatch(changePassword(currentPassword, newPassword));
+      if (!isFirebaseUser && !currentPassword) {
+        toast.warning('Por favor ingrese la contraseña actual.');
+        return;
+      }
+
+      if (isFirebaseUser) {
+        await dispatch(changePassword(null, newPassword));
+      } else {
+        await dispatch(changePassword(currentPassword, newPassword));
+      }
 
       setCurrentPassword('');
       setNewPassword('');
@@ -60,20 +77,22 @@ const Security = () => {
         </div>
         <div>
           <form className="p-4" onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block mb-1" htmlFor="currentpassword">
-                Contraseña Actual
-              </label>
-              <input
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
-                type="password"
-                id="currentpassword"
-                name="currentpassword"
-                value={currentPassword}
-                onChange={handleChange}
-                placeholder="Ingrese la contraseña actual"
-              />
-            </div>
+            {!isFirebaseUser && (
+              <div className="mb-4">
+                <label className="block mb-1" htmlFor="currentpassword">
+                  Contraseña Actual
+                </label>
+                <input
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
+                  type="password"
+                  id="currentpassword"
+                  name="currentpassword"
+                  value={currentPassword}
+                  onChange={handleChange}
+                  placeholder="Ingrese la contraseña actual"
+                />
+              </div>
+            )}
             <div className="mb-4">
               <label className="block mb-1" htmlFor="newpassword">
                 Nueva Contraseña

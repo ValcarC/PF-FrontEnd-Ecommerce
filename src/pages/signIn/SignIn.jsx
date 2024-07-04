@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'tailwindcss/tailwind.css';
 import { useNavigate, Link } from 'react-router-dom';
+import { FaGoogle } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
 import { logWhitFirebase, login } from '../../redux/actions/userAction';
 import { ToastContainer, toast } from 'react-toastify';
@@ -94,9 +95,9 @@ const SignIn = () => {
                 />
               </div>
 
-              <div className="mt-8 text-center text-gray-500 hover:text-black text-sm">
+              {/* <div className="mt-8 text-center text-gray-500 hover:text-black text-sm">
                 <a href='/ForgotPassword'>Contraseña Olvidada?</a>
-              </div>
+              </div> */}
 
               <button type="submit" className="border-2 border-green-500 text-black mt-8 p-2 mx-auto block rounded-md
         hover:bg-green-500 hover:text-white
@@ -104,10 +105,11 @@ const SignIn = () => {
                 INGRESAR
               </button>
             </form>
-            <button onClick={ () => iniciarSesion() } className="border-2 border-green-500 text-black mt-8 p-2 mx-auto block rounded-md
+            <p className='text-sm mt-4 text-gray-500'>Ó ingresa con una cuenta externa</p>
+            <button onClick={ () => iniciarSesion() } className="border-2 border-green-500 text-black mt-4 p-2 mx-auto block rounded-md
         hover:bg-green-500 hover:text-white
         transform hover:scale-110 transition duration-200">
-              Google Login</button>
+              <FaGoogle /></button>
           </>
           ) }
       </div>
