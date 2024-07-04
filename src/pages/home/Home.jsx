@@ -30,9 +30,7 @@ const Home = () => {
     setCurrentPage(pageNumber);
   };
 
-  // useEffect(() => {
-  //   dispatch(getTemplates());
-  // }, [ dispatch ]);
+  
 
   return (
     <div>
