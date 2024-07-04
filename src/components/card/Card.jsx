@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const Card = ({ template, isFavorite }) => {
 
-  const ratings = template.reviews.map((e) => e.rating) || [];
+  const ratings = template.reviews?.map((e) => e.rating) || [];
   const resultRating = ratings.length > 0 ? promedio(ratings) : 0;
 
   const dispatch = useDispatch();
@@ -62,7 +62,7 @@ const Card = ({ template, isFavorite }) => {
       </div>
       <Link to={ `/detail/${template.id}` }>
         <div>
-          { template.images.map((image) => (
+          { template.images?.map((image) => (
             <div>
               { (image.isCover === true && image.set === `${image.category}${1}`) && <img className="w-full h-32 object-cover" key={ image.id } src={ image.original } alt={ template.name } /> }
             </div>

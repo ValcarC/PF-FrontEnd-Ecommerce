@@ -56,7 +56,12 @@ const userReducer = (state = initialUserState, action) => {
     case FETCH_PROFILE_SUCCESS:
       return {
         ...state,
-        myFavorites: action.favorites
+        myFavorites: action.favorites,
+        profile: {
+          user: action.payload,
+          loading: false,
+          error: null
+        }
       };
     case UPDATE_PROFILE_SUCCESS:
       return {

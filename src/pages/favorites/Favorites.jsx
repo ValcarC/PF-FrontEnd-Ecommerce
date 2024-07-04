@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "../../components/card/Card";
 import { fetchProfile } from "../../redux/actions/userAction";
 
 const Favorites = () => {
     const dispatch = useDispatch();
     const myFavorites = useSelector(state => state.user.myFavorites) || [];
+    const navigate = useNavigate();
+    const loggedIn = useSelector(state => state.user.loggedIn)
 
     useEffect(() => {
+        if (!loggedIn) return navigate("/home")
         dispatch(fetchProfile());
-    }, [ dispatch ]);
+    }, [ loggedIn, dispatch ]);
 
-    console.log({ myFavorites });
 
     return (
         <div className="container mx-auto mt-8">
