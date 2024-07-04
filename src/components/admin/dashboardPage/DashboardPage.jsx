@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 const DashboardPage = () => {
   return (
-    <div className="grid grid-rows-6 h-screen">
+    <div className="grid grid-rows-6 h-screen h-full">
       <div className="row-span-1 bg-gray-800 text-white flex items-center justify-between p-2">
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center mt-1 p-2">
@@ -35,7 +35,7 @@ const DashboardPage = () => {
             <span>Cerrar Sesión</span>
           </div>
         </div>
-        <div className="col-span-10 p-4">
+        <div className="col-span-10 p-4 overflow-scroll">
           <Outlet />
         </div>
       </div>
