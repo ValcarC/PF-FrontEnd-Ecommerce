@@ -5,7 +5,7 @@ import 'chart.js/auto';
 const localURL = "http://localhost:3001/reviews"
 const URL = ""
 
-const TemplateRatingsChart = () => {
+const MetricsTemplates = () => {
     const [chartData, setChartData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -54,11 +54,12 @@ const TemplateRatingsChart = () => {
     }
 
     return (
-        <div className='w-[800px]'>
-            <h2 className='text-[16px] text-gray-700'>Template Average Ratings</h2>
+        <div>
+            <h2>Template Average Ratings</h2>
             <Bar data={chartData} />
         </div>
     );
+
 };
 
-export default TemplateRatingsChart;
+export default MetricsTemplates;
