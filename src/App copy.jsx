@@ -32,11 +32,16 @@ import PayCancel from './components/payCancel/PayCancel.jsx';
 import Prueba from './components/Prueba.jsx';
 
 function App() {
-  const { pathname} = useLocation();
-  
+  const { pathname } = useLocation();
+
+
+  const isNotAdminRoute = pathname !== '/admin';
+
   return (
     <div>
-      { pathname !== '/' && <Navbar /> }
+       <ToastContainer />
+      {/* {isNotAdminRoute && <Navbar />} */}
+      {/* {isNotAdminRoute && <Navbar />} */}
       <AuthContextProvider>
         <Routes>
           <Route path='/' element={<Landing />} />
