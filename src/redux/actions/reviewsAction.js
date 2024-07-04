@@ -3,10 +3,10 @@ import { GET_REVIEWS_USER, GET_REVIEWS_TEMPLATE, DELETE_REVIEW, UPDATE_REVIEW } 
 
 const localURL = "http://localhost:3001/reviews"
 const URL = ""
-const TOKEN = localStorage.getItem('token')
 
 export const getReviewsUser = () => {
     return async (dispatch)=>{
+        const TOKEN = localStorage.getItem('token')
         try {
             const response = await axios.get(`${URL || localURL}/`, {
                 headers: {
@@ -26,6 +26,7 @@ export const getReviewsUser = () => {
 
 export const getReviewsTemplate = (templateId)=>{
     return async (dispatch)=>{
+        
         try {
             const {data} = await axios.get(`${URL || localURL}/${templateId}`)
             console.log('Reviews obtenidas:', data); // Agrega un console.log para ver las reviews obtenidas
@@ -42,7 +43,7 @@ export const getReviewsTemplate = (templateId)=>{
 
 export function createReviewTemplate(obj) {
     return async  ()=> {
-        
+        const TOKEN = localStorage.getItem('token')
             const { data } = await axios.post(`${URL || localURL}`,obj , {
                 headers: {
                     'Authorization': `Bearer ${TOKEN}`
@@ -57,6 +58,7 @@ export function createReviewTemplate(obj) {
 
 export const deleteReview = (reviewId) => {
     return async (dispatch) => {
+        const TOKEN = localStorage.getItem('token')
         try {
             await axios.delete(`${URL || localURL}/${reviewId}`, {
                 headers: {
@@ -75,6 +77,7 @@ export const deleteReview = (reviewId) => {
 };
 
 export const updateReview = (id, data) => {
+    const TOKEN = localStorage.getItem('token')
     return async (dispatch) => {
         try {
             const response = await axios.put(`${URL || localURL}/${id}`, data, {

@@ -18,7 +18,7 @@ const Profile = ({ user, loading, error, fetchProfile, updateProfile }) => {
 
   useEffect(() => {
     if (user) {
-      setUsername(user.username);
+      setUsername(user.username || null);
       setName(user.name);
       setLastname(user.lastname);
       setEmail(user.email);
